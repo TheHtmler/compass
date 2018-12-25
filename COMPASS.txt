@@ -1,0 +1,13 @@
+1. Create a New Vue.js Application
+
+    1.1: Install vue-cli
+        npm install -g vue-cli
+    1.2: Create Project
+        vue init webpack compass
+    1.3: Install all default modules
+        cd ./compass
+        npm install
+
+2. Install Express.js as RESTful API Server
+    2.1: Add express modules and it dependencies
+        npm install --save express body-parser
