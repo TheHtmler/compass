@@ -4,18 +4,21 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import iView from 'iview'
+import echarts from 'echarts'
+import store from './store'
 import 'iview/dist/styles/iview.css'
 import 'normalize.css'
 import 'assets/less/index.less'
 
 Vue.config.productionTip = false
-
+Vue.prototype.$echarts = echarts
 Vue.use(iView)
 
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
     template: '<App/>'
 })
