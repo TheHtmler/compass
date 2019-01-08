@@ -5,11 +5,14 @@
             :data="tableData" 
             size="small"
             no-data-text="No Data To Display"
+            @on-row-click="viewDetail"
         ></Table>
     </div>
 </template>
 
 <script>
+    import SStorage from 'utils/SStorage'
+    
     export default {
         props: {
             columns: {
@@ -25,7 +28,13 @@
             }
         },
         methods: {
-     
+            viewDetail(rowData) {
+                this.$router.push({
+                    path: '/dashboard/graph_detail'
+                })
+                SStorage.setItem('detailData', rowData)
+                this.$store.dispatch('DeliverData', rowData)
+            }
         }
     }
 </script>

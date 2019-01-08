@@ -1,8 +1,8 @@
 <template>
     <div class="sider-wrapper">
-        <div class="logo">COMPASS</div>
+        <div class="logo">QoE</div>
         <div class="menu">
-            <Menu :active-name="$route.name" width="auto" :theme="'dark'">
+            <Menu :active-name="$route.meta.menuActive" width="auto" :theme="'dark'">
                 <MenuItem name="Dashboard">
                     <router-link tag="div" to="/dashboard" class="menu-item">
                         <Icon type="md-pie" size="16" />

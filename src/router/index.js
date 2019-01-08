@@ -14,28 +14,72 @@ export default new Router({
             path: '/dashboard',
             name: 'Dashboard',
             meta: {
-                breadCrumbName: 'Dashboard'
+                menuActive: 'Dashboard',
+                routesList: [{
+                    routeName: 'Dashboard',
+                    routePath: '/dashboard'
+                }]
             },
-            component: resolve => require(['views/dashboard/Dashboard.vue'], resolve)
+            component: resolve => require(['views/dashboard/DashboardWrapper.vue'], resolve),
+            children: [{
+                path: '/dashboard',
+                name: 'DashboardPanel',
+                meta: {
+                    menuActive: 'Dashboard',
+                    breadCrumbName: 'Dashboard',
+                    routesList: [{
+                        routeName: 'Dashboard',
+                        routePath: '/dashboard'
+                    }]
+                },
+                component: resolve => require(['views/dashboard/dashboardPanel/Dashboard.vue'], resolve)
+            }, {
+                path: '/dashboard/graph_detail',
+                name: 'Detail',
+                meta: {
+                    menuActive: 'Dashboard',
+                    breadCrumbName: 'Dashboard / Detail',
+                    routesList: [{
+                        routeName: 'Dashboard',
+                        routePath: '/dashboard'
+                    }, {
+                        routeName: 'Detail',
+                        routePath: '/dashboard/graph_detail'
+                    }]
+                },
+                component: resolve => require(['views/dashboard/dashboardDetail/Detail.vue'], resolve)
+            }]
         }, {
             path: '/visualize',
             name: 'Visualize',
             meta: {
-                breadCrumbName: 'Visualize'
+                menuActive: 'Visualize',
+                routesList: [{
+                    routeName: 'Visualize',
+                    routePath: '/visualize'
+                }]
             },
             component: resolve => require(['views/visualize/Visualize.vue'], resolve)
         }, {
             path: '/logs',
             name: 'Logs',
             meta: {
-                breadCrumbName: 'Logs'
+                menuActive: 'Logs',
+                routesList: [{
+                    routeName: 'Logs',
+                    routePath: '/logs'
+                }]
             },
             component: resolve => require(['views/logs/Logs.vue'], resolve)
         }, {
             path: '/management',
             name: 'Management',
             meta: {
-                breadCrumbName: 'Management'
+                menuActive: 'Management',
+                routesList: [{
+                    routeName: 'Management',
+                    routePath: '/management'
+                }]
             },
             component: resolve => require(['views/management/Management.vue'], resolve)
         }]
