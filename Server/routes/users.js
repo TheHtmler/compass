@@ -16,11 +16,6 @@ router.post('/login', (req, res, next) => {
         }
         // varify password
         if (password == user.password) {
-            // const rule = {
-            //     username: user.username,
-            //     email: user.email,
-            //     role: user.role
-            // }
             jwt.sign({ user }, 'tokenkey', { expiresIn: '1h' }, (err, token) => {
                 if (err) {
                     throw err

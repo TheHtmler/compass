@@ -47,10 +47,10 @@
                             console.log(res)
                             this.$router.push({
                                 path: '/dashboard'
-                            }).catch(err => {
+                            })
+                        }).catch(err => {
                                 console.log(err)
                             })
-                        })
                     } else {
                         this.$Message.error('Fail!')
                     }

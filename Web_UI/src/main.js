@@ -14,7 +14,8 @@ Vue.config.productionTip = false
 Vue.use(iView)
 
 /* default baseURL */
-axios.defaults.baseURL = '//140.143.232.62/'
+// axios.defaults.baseURL = '//140.143.232.62/'
+axios.defaults.baseURL = location.hostname == 'localhost' ? '//localhost:5000' : '//140.143.232.62/'
 
 /* Vue prototype config */
 // Vue.prototype.$API = API
