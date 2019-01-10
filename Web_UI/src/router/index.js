@@ -6,6 +6,10 @@ Vue.use(Router)
 export default new Router({
     mode: 'history',
     routes: [{
+        path: '/login',
+        name: "Login",
+        component: resolve => require(['views/login/Login.vue'], resolve)
+    }, {
         path: '/',
         name: 'Home',
         redirect: '/dashboard',

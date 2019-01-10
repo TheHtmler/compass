@@ -1,0 +1,2 @@
+webpackJsonp([7],{RBSg:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"dashboard-wrapper"},[t("router-view")],1)},staticRenderFns:[]},l=r("VU/8")(null,n,!1,null,null,null);t.default=l.exports}});
+//# sourceMappingURL=7.04b4e07b31fd46f413d4.js.map
