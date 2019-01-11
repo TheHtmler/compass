@@ -36,12 +36,12 @@ app.use(cors())
 
 app.use('/api', users)
 
-app.get('/', (req, res) => {
-    res.json({
-        success: true,
-        msg: 'Welcome'
-    })
-})
+// app.get('/', (req, res) => {
+//     res.json({
+//         success: true,
+//         msg: 'Welcome'
+//     })
+// })
 
 // app.use(bodyParser.urlencoded({extended:true}))
 
