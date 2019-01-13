@@ -1,6 +1,6 @@
 <template>
     <div class="sider-wrapper">
-        <div class="logo">QoE</div>
+        <div class="logo">compass</div>
         <div class="menu">
             <Menu :active-name="$route.meta.menuActive" width="auto" :theme="'dark'">
                 <MenuItem name="Dashboard">

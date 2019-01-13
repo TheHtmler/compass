@@ -1,10 +1,10 @@
 import request from 'utils/https'
 
-export const loginRequest = (data) => {
+export const loginRequest = (formData) => {
     return request({
         method: 'post',
-        data: data,
         url: 'api/login',
+        data: formData,
         headers: {
             'Content-Type': 'application/json'
         }

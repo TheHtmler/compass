@@ -1,19 +1,14 @@
 <template>
     <div class="breadcrumb">
-        <!-- <div class="path" v-for="(item, index) in $route.meta.routesList" :key="index">
-            <router-link class="path-enable" tag="span" :to="{path: item.routePath}" v-if="index !== $route.meta.routesList.length - 1">
-                {{item.routeName}}<span v-if="$route.meta.routesList.length > 1">&nbsp;/&nbsp;</span>
-            </router-link>
-            <span v-else>
-                {{item.routeName}}
-            </span>
-        </div> -->
         <div class="path" v-if="$route.meta.routesList.length > 1" >
-            <router-link class="path-enable" tag="span" :to="{path: item.routePath}" v-for="(item, index) in $route.meta.routesList" :key="index" v-if="index !== $route.meta.routesList.length - 1">
-                {{item.routeName}}
-            </router-link>
+            <span v-for="(item, index) in $route.meta.routesList" :key="index" 
+                v-if="index !== $route.meta.routesList.length - 1">
+                <router-link class="path-enable" tag="span" :to="{path: item.routePath}">
+                    {{item.routeName}}
+                </router-link>&nbsp;/&nbsp;
+            </span>
             <span v-else>
-                &nbsp;/&nbsp;{{item.routeName}}
+                {{item.routeName}}
             </span>
         </div>
         <span v-else>
