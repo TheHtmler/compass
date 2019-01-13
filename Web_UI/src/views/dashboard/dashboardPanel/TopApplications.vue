@@ -5,7 +5,6 @@
 </template>
 
 <script>
-    import echarts from 'utils/echarts'
     import 'echarts/theme/macarons'
     import SStorage from 'utils/SStorage'
 
@@ -82,7 +81,7 @@
         },
         methods: {
             initChart() {
-                this.chart = echarts.init(this.$el, 'macarons')
+                this.chart = this.$echarts.init(this.$el, 'macarons')
                 this.chart.setOption(this.option)
                 this.chart.on('click', (param) => {
                     console.log(param)

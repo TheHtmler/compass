@@ -1,12 +1,6 @@
 <template>
     <div class="dashboard">
         <div class="row">
-            <div class="section-7">
-                <div class="header">Clients Location</div>
-                <clients-location></clients-location>
-            </div>
-        </div>
-        <div class="row">
             <div class="section-5 section-left">
                 <div class="header">Top 10 Applications - Pie</div>
                 <top-apps></top-apps>
@@ -30,11 +24,6 @@
 </template>
 
 <script>
-    // import topApps from './TopApplications.vue'
-    // import topClients from './TopClients.vue'
-    // import clientsLocation from './ClientsLocation.vue'
-    // import qoeTable from 'components/table/Table.vue'
-
     export default {
         data() {
             return {
@@ -238,7 +227,6 @@
             topApps: resolve => require(['./TopApplications.vue'], resolve),
             qoeTable: resolve => require(['components/table/Table.vue'], resolve),
             topClients: resolve => require(['./TopClients.vue'], resolve),
-            clientsLocation: resolve => require(['./ClientsLocation.vue'], resolve)
         }
     }
 </script>

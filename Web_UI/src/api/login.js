@@ -1,4 +1,7 @@
 import request from 'utils/https'
+import SStorage from 'utils/SStorage'
+
+const token = SStorage.getItem('userInfoData').token
 
 export const loginRequest = (formData) => {
     return request({
@@ -11,10 +14,10 @@ export const loginRequest = (formData) => {
     })
 }
 
-export const logoutRequest = (token) => {
+export const logoutRequest = () => {
     return request({
         method: 'post',
-        url: 'api/v1/auth/logout',
+        url: 'api/logout',
         data: {},
         headers: {
             'Content-Type': 'application/json',

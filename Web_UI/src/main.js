@@ -6,6 +6,7 @@ import router from './router'
 import iView from 'iview'
 import store from './store'
 import axios from 'axios'
+import echarts from 'echarts'
 import 'iview/dist/styles/iview.css'
 import 'normalize.css'
 import 'assets/less/index.less'
@@ -20,6 +21,7 @@ axios.defaults.baseURL = location.hostname == 'localhost' ? '//localhost:5000/' 
 /* Vue prototype config */
 // Vue.prototype.$API = API
 Vue.prototype.$axios = axios
+Vue.prototype.$echarts = echarts
 
 /* eslint-disable no-new */
 new Vue({

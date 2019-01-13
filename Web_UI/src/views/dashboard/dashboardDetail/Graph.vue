@@ -3,7 +3,6 @@
 </template>
 
 <script>
-    import echarts from 'utils/echarts'
     import 'echarts/theme/macarons'
 
     export default {
@@ -30,7 +29,7 @@
         },
         methods: {
             initChart() {
-                this.chart = echarts.init(this.$el, 'macarons')
+                this.chart = this.$echarts.init(this.$el, 'macarons')
                 var base = +new Date(1968, 9, 3);
                 var oneDay = 24 * 3600 * 1000;
                 var date = [];
@@ -100,7 +99,7 @@
                                 color: 'rgb(255, 70, 131)'
                             },
                             areaStyle: {
-                                color: echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                                     offset: 0,
                                     color: 'rgb(255, 158, 68)'
                                 }, {

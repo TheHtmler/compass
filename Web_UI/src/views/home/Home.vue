@@ -1,8 +1,5 @@
 <template>
     <div class="wrapper">
-        <div class="top-menu">
-            <Icon type="ios-menu"></Icon>
-        </div>
         <v-sider></v-sider>
         <v-main></v-main>
     </div>
@@ -10,7 +7,7 @@
 
 <script>
     import vSider from 'views/home/Sider'
-    import vMain from 'views/home/Main'
+    import vMain from 'views/home/main/Main'
 
     export default {
         components: {

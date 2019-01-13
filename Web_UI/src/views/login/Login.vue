@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import SStorage from 'utils/SStorage'
 import { loginRequest } from 'api/login'
 
  export default {
@@ -57,7 +58,10 @@ import { loginRequest } from 'api/login'
                     this.$Loading.start()
                     // this.$Message.success('Success!')
                     loginRequest(this.formData).then((res) => {
-                        console.log(res)
+                        console.log(res.data.data)
+                        let userInfoObj = res.data.data
+                        SStorage.setItem('userInfoObj', userInfoObj)
+                        this.$store.dispatch('getUserInfoData', userInfoObj)
                         this.$Loading.finish()
                         this.$router.push({path: '/dashboard'})
                     }).catch((err) => {
