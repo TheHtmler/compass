@@ -57,7 +57,7 @@ import SStorage from 'utils/SStorage'
                     this.$Loading.start()
                     // this.$Message.success('Success!')
                     this.$store.dispatch('getUserInfoData', this.formData).then(() => {
-                        this.$Loading.finish()
+                        this.$Loading.finish() 
 
                         this.$router.push({path: '/dashboard'})
                     }).catch(err => {
