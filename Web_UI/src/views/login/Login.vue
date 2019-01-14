@@ -60,7 +60,7 @@ import SStorage from 'utils/SStorage'
                         this.$Loading.finish()
 
                         this.$router.push({path: '/dashboard'})
-                    }).catch((err) => {
+                    }).catch(err => {
                         this.$Loading.error()
                         console.log(err)
                         this.$Message.error('Login failed !')
