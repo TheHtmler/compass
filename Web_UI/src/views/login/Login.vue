@@ -18,7 +18,6 @@
 
 <script>
 import SStorage from 'utils/SStorage'
-import { loginRequest } from 'api/login'
 
  export default {
     data () {
@@ -57,12 +56,9 @@ import { loginRequest } from 'api/login'
                 if (valid) {
                     this.$Loading.start()
                     // this.$Message.success('Success!')
-                    loginRequest(this.formData).then((res) => {
-                        console.log(res.data.data)
-                        let userInfoObj = res.data.data
-                        SStorage.setItem('userInfoObj', userInfoObj)
-                        this.$store.dispatch('getUserInfoData', userInfoObj)
+                    this.$store.dispatch('getUserInfoData', this.formData).then(() => {
                         this.$Loading.finish()
+
                         this.$router.push({path: '/dashboard'})
                     }).catch((err) => {
                         this.$Loading.error()
