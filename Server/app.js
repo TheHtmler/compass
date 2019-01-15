@@ -17,6 +17,11 @@ mongoose.connect('mongodb://Orton:orton1234@ds153314.mlab.com:53314/compass', {
 
 const app = express()
 
+// Middleware
+app.use(morgan('tiny'))
+app.use(bodyParser.json())
+app.use(cors())
+
 // cross domain option
 app.all('*', (req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true)
@@ -29,19 +34,14 @@ app.all('*', (req, res, next) => {
     next()
 })
 
-// Middleware
-app.use(morgan('tiny'))
-app.use(bodyParser.json())
-app.use(cors())
-
 app.use('/api', users)
 
-// app.get('/', (req, res) => {
-//     res.json({
-//         success: true,
-//         msg: 'Welcome'
-//     })
-// })
+app.get('/', (req, res) => {
+    res.json({
+        success: true,
+        msg: 'Welcome'
+    })
+})
 
 // app.use(bodyParser.urlencoded({extended:true}))
 
