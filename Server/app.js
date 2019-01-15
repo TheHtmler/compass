@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const users = require('./routes/users')
 
 // connect db
-mongoose.connect('mongodb://Randy:a2136521@ds153314.mlab.com:53314/compass', {
+mongoose.connect('mongodb://Orton:orton1234@ds153314.mlab.com:53314/compass', {
         useNewUrlParser: true
     }).then(() => {
         console.log('db connected')
