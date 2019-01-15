@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const morgan = require('morgan')
+    // const morgan = require('morgan')
 const mongoose = require('mongoose')
 const users = require('./routes/users')
 
@@ -18,7 +18,7 @@ mongoose.connect('mongodb://Orton:orton1234@ds153314.mlab.com:53314/compass', {
 const app = express()
 
 // Middleware
-app.use(morgan('tiny'))
+// app.use(morgan('tiny'))
 app.use(bodyParser.json())
 app.use(cors())
 
