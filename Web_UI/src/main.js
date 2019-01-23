@@ -23,6 +23,23 @@ axios.defaults.baseURL = location.hostname == 'localhost' ? '//localhost:5000/' 
 Vue.prototype.$axios = axios
 Vue.prototype.$echarts = echarts
 
+router.beforeEach((to, from, next) => {
+    if (store.state.userData.token && store.state.userData.token !== '') {
+        next()
+    } else {
+        console.log('no token')
+        if (to.path == '/login') {
+            next()
+        } else {
+            next({
+                path: '/login'
+            })
+        }
+
+    }
+})
+
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
