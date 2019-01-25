@@ -8,7 +8,7 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        // required: true
     },
     email: {
         type: String,
@@ -24,7 +24,10 @@ const UserSchema = new Schema({
     token: {
         type: String
     },
-    create_time: Date
+    create_time: {
+        type: Date,
+        required: true
+    }
 })
 
 const User = mongoose.model('users', UserSchema)

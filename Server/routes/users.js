@@ -2,8 +2,7 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const User = require('../models/UserModel')
-    // const createToken = require('../token/createToken')
-    // const checkToken = require('../token/checkToken')
+const checkToken = require('../token/checkToken')
 
 // login
 router.post('/login', (req, res, next) => {
@@ -33,6 +32,46 @@ router.post('/login', (req, res, next) => {
         }
     })
 
+})
+
+// add user
+router.post('/users', checkToken, (req, res) => {
+    // jwt.verify(req.token, 'tokenkey', (err, authData) => {
+
+    // })
+    console.log(req.nody)
+    const user = new User(req.body)
+    user.create_time = new Date()
+    user.save().then(result => {
+        if (result) {
+            console.log(result)
+            res.json({
+                success: true,
+                data: result
+            })
+        } else {
+            res.json({
+                msg: 'fail'
+            })
+        }
+    })
+})
+
+// get user
+router.get('/users', checkToken, (req, res) => {
+    User.find().then(result => {
+        if (result) {
+            console.log(result)
+            res.json({
+                success: true,
+                data: result
+            })
+        } else {
+            res.json({
+                msg: 'fail'
+            })
+        }
+    })
 })
 
 module.exports = router
