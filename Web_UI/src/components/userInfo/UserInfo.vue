@@ -1,14 +1,14 @@
 <template>
-  <div class="user-info">
-    <div class="info">
+  <div class="user-info"  >
+    <div class="info" @click="showInfoFun">
       <p class="name">{{ nickName }}</p>
       <Icon type="md-contact" />
     </div>
-    <div class="user-list">
+    <div class="user-list" v-show="showInfo">
       <ul>
         <li><Icon type="md-information-circle" />Profile</li>
         <li><Icon type="md-settings" />Setting</li>
-        <li><Icon type="md-power" />Logout</li>
+        <li @click="logoutFun"><Icon type="md-power"/>Logout</li>
       </ul>
     </div>
   </div>
@@ -20,7 +20,7 @@ import SStorage from 'utils/SStorage'
 export default {
   data() {
     return {
-      
+      showInfo: false
     }
   },
   computed: {
@@ -32,6 +32,24 @@ export default {
     // this.username = SStorage.getItem('userInfoObj').username
     // console.log(SStorage.getItem('userInfoObj'))
     console.log(this.$store.getters.userInfoData)
+  },
+  mounted() {
+    this.globalClick(() => {
+      this.showInfo = false
+    })
+  },
+  methods: {
+    showInfoFun(e) {
+      e.stopPropagation()
+      this.showInfo = !this.showInfo
+    },
+    logoutFun() {
+      console.log(this.$router)
+      console.log(this.$route)
+      SStorage.clear()
+      this.$router.replace({path: '/login'})
+
+    }
   }
 }
 </script>

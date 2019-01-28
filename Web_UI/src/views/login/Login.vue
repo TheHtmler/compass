@@ -1,19 +1,24 @@
 <template>
-    <Form ref="formWrapper" :model="formData" :rules="rules" inline>
-        <FormItem prop="username">
-            <Input type="text" v-model="formData.username" placeholder="Username">
-                <Icon type="ios-person-outline" slot="prepend"></Icon>
-            </Input>
-        </FormItem>
-        <FormItem prop="password">
-            <Input type="password" v-model="formData.password" placeholder="Password">
-                <Icon type="ios-lock-outline" slot="prepend"></Icon>
-            </Input>
-        </FormItem>
-        <FormItem>
-            <Button type="primary" @click="loginClick('formWrapper')">Signin</Button>
-        </FormItem>
-    </Form>
+    <div class="login-wrapper">
+        <div class="login-content">
+            <div class="logo"><img src="~assets/images/compass-logo.png" alt="hjhjjh" width="600"></div>
+            <Form ref="formWrapper" :model="formData" :rules="rules" class="form-wrapper">
+                <FormItem prop="username">
+                    <Input type="text" v-model="formData.username" placeholder="Username">
+                        <Icon type="ios-person-outline" slot="prepend"></Icon>
+                    </Input>
+                </FormItem>
+                <FormItem prop="password">
+                    <Input type="password" v-model="formData.password" placeholder="Password">
+                        <Icon type="ios-lock-outline" slot="prepend"></Icon>
+                    </Input>
+                </FormItem>
+                <FormItem>
+                    <Button type="primary" @click="loginClick('formWrapper')">Login</Button>
+                </FormItem>
+            </Form>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -75,6 +80,34 @@ import SStorage from 'utils/SStorage'
 </script>
 
 <style lang="less" scoped>
+.login-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 
+    .login-content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .logo{
+        padding: 30px 0 100px;
+        img{
+            display: inline-block;
+        }
+    }
+
+    .form-wrapper{
+        margin: 0 auto;
+        width: 300px;
+
+        .ivu-btn{
+            width: 100%;
+        }
+    }
+}
 </style>
 

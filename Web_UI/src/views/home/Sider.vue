@@ -1,6 +1,8 @@
 <template>
     <div class="sider-wrapper">
-        <div class="logo">compass</div>
+        <div class="logo">
+            <!-- <img src="/assets/images/copass-logo.png" alt=""> -->
+        </div>
         <div class="menu">
             <Menu :active-name="$route.meta.menuActive" width="auto" :theme="'dark'">
                 <MenuItem name="Dashboard">
@@ -25,6 +27,12 @@
                     <router-link tag="div" to="/management" class="menu-item">
                         <Icon type="md-cog" size="16" />
                         Management
+                    </router-link>
+                </MenuItem>
+                <MenuItem name="Users">
+                    <router-link tag="div" to="/users" class="menu-item">
+                        <Icon type="md-contacts"  size="16" />
+                        Users
                     </router-link>
                 </MenuItem>
             </Menu>
@@ -54,10 +62,11 @@
         .logo{
             text-align: center;
             height: 75px;
-            line-height: 75px;
             font-size: 36px;
             color: #fff;
-            background-color: #272c30;
+            background:#272c30 url(~assets/images/compass-logo.png) no-repeat center 25px;
+            background-size: 200px 30px;
+            box-sizing: border-box;
         }
 
         .menu{

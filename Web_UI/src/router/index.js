@@ -86,6 +86,17 @@ export default new Router({
                 }]
             },
             component: resolve => require(['views/management/Management.vue'], resolve)
+        }, {
+            path: '/users',
+            name: 'Users',
+            meta: {
+                menuActive: 'Users',
+                routesList: [{
+                    routeName: 'Users',
+                    routePath: '/user'
+                }]
+            },
+            component: resolve => require(['views/users/Users.vue'], resolve)
         }]
     }]
 })

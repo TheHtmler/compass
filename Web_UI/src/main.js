@@ -10,6 +10,7 @@ import echarts from 'echarts'
 import 'iview/dist/styles/iview.css'
 import 'normalize.css'
 import 'assets/less/index.less'
+import { callbackify } from 'util';
 
 Vue.config.productionTip = false
 Vue.use(iView)
@@ -22,6 +23,13 @@ axios.defaults.baseURL = location.hostname == 'localhost' ? '//localhost:5000/' 
 // Vue.prototype.$API = API
 Vue.prototype.$axios = axios
 Vue.prototype.$echarts = echarts
+
+// Define global click events
+Vue.prototype.globalClick = (callBack) => {
+    document.getElementById('app').onclick = () => {
+        callBack()
+    }
+}
 
 router.beforeEach((to, from, next) => {
     if (store.state.userData.token && store.state.userData.token !== '') {
