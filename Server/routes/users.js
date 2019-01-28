@@ -36,9 +36,6 @@ router.post('/login', (req, res, next) => {
 
 // add user
 router.post('/users', checkToken, (req, res) => {
-    // jwt.verify(req.token, 'tokenkey', (err, authData) => {
-
-    // })
     console.log(req.nody)
     const user = new User(req.body)
     user.create_time = new Date()
@@ -70,6 +67,18 @@ router.get('/users', checkToken, (req, res) => {
             res.json({
                 msg: 'fail'
             })
+        }
+    })
+})
+
+// delete user
+router.delete('/users', checkToken, (req, res) => {
+    const _email = req.body.email
+    User.findOneAndDelete({ email: _email }).then(result => {
+        if (result) {
+            res.json("Delete Success!")
+        } else {
+            res.json('Delete Failed!')
         }
     })
 })

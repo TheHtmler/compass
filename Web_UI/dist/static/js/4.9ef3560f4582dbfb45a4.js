@@ -1,2 +1,0 @@
-webpackJsonp([4],{E3yK:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s={render:function(){this.$createElement;this._self._c;return this._m(0)},staticRenderFns:[function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"management"},[t("h3",[this._v("Management")])])}]};var a=n("VU/8")({},s,!1,function(e){n("Z7TL")},"data-v-d923668c",null);t.default=a.exports},Z7TL:function(e,t){}});
-//# sourceMappingURL=4.9ef3560f4582dbfb45a4.js.map

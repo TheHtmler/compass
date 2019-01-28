@@ -1,8 +1,14 @@
 <template>
     <div class="dashboard">
         <div class="row">
+            <div class="section-7">
+                <div class="header">Client Location</div>
+                <cli-location></cli-location>
+            </div>
+        </div>
+        <div class="row">
             <div class="section-5 section-left">
-                <div class="header">Top 10 Applications - Pie</div>
+                <div class="header">Top 10 Applications - Chart</div>
                 <top-apps></top-apps>
             </div>
             <div class="section-5">
@@ -12,7 +18,7 @@
         </div>
         <div class="row">
             <div class="section-5 section-left">
-                <div class="header">Top 10 Clients - Pie</div>
+                <div class="header">Top 10 Clients - Chart</div>
                 <top-clients></top-clients>
             </div>
             <div class="section-5">
@@ -224,6 +230,7 @@
             }
         },
         components: {
+            cliLocation: resolve => require(['./ClientsLocation.vue'], resolve),
             topApps: resolve => require(['./TopApplications.vue'], resolve),
             qoeTable: resolve => require(['components/table/Table.vue'], resolve),
             topClients: resolve => require(['./TopClients.vue'], resolve),
