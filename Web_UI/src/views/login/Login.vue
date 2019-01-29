@@ -1,7 +1,10 @@
 <template>
     <div class="login-wrapper">
         <div class="login-content">
-            <div class="logo"><img src="~assets/images/compass-logo.png" alt="hjhjjh" width="600"></div>
+            <div class="logo">
+                <img src="~assets/images/compass-logo.png" alt="hjhjjh" width="600">
+                <div class="slogan">Aimless life is like sailing without compass</div>
+            </div>
             <Form ref="formWrapper" :model="formData" :rules="rules" class="form-wrapper">
                 <FormItem prop="username">
                     <Input type="text" v-model="formData.username" placeholder="Default: admin">
@@ -94,9 +97,15 @@ import SStorage from 'utils/SStorage'
     }
 
     .logo{
-        padding: 30px 0 100px;
+        padding: 30px 0 90px;
         img{
             display: inline-block;
+        }
+
+        .slogan {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #fff;
         }
     }
 
