@@ -4,12 +4,12 @@
             <div class="logo"><img src="~assets/images/compass-logo.png" alt="hjhjjh" width="600"></div>
             <Form ref="formWrapper" :model="formData" :rules="rules" class="form-wrapper">
                 <FormItem prop="username">
-                    <Input type="text" v-model="formData.username" placeholder="Username">
+                    <Input type="text" v-model="formData.username" placeholder="Default: admin">
                         <Icon type="ios-person-outline" slot="prepend"></Icon>
                     </Input>
                 </FormItem>
                 <FormItem prop="password">
-                    <Input type="password" v-model="formData.password" placeholder="Password">
+                    <Input type="password" v-model="formData.password" placeholder="Default: admin">
                         <Icon type="ios-lock-outline" slot="prepend"></Icon>
                     </Input>
                 </FormItem>
