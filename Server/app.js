@@ -4,6 +4,7 @@ const cors = require('cors')
     // const morgan = require('morgan')
 const mongoose = require('mongoose')
 const users = require('./routes/users')
+    // const WebSocket = require('ws')
 
 // connect db
 mongoose.connect('mongodb://Orton:orton1234@ds153314.mlab.com:53314/compass', {
@@ -45,6 +46,15 @@ app.get('/', (req, res) => {
 
 // app.use(bodyParser.urlencoded({extended:true}))
 
+// const wss = new WebSocket.Server({ port: 80 })
+// wss.on('connection', (ws) => {
+//     ws.on('message', (msg) => {
+//         console.log('Received msg: ' + msg)
+//     })
+//     ws.send('Hi, Tao!')
+// })
+
 const port = process.env.PORT || 5000
 
-app.listen(port, () => { console.log('Server runnning on port: ' + port) })
+let server = app.listen(port, () => { console.log('Server runnning on port: ' + port) })
+require('./socket/websocket')(server)
