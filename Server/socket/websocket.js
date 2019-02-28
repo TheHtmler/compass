@@ -1,5 +1,5 @@
 function websocket(server) {
-    const io = require('socket.io')(server)
+    const io = require('socket.io').listen(server)
     io.on('connection', (socket) => {
         console.log('socket connect!')
         socket.on('hi', function(data) {

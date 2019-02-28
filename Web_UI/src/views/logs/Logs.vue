@@ -24,9 +24,9 @@
         methods: {
             socketIO() {
                 if(location.hostname == 'localhost' || location.hostname == '127.0.0.1') {
-                    socketUri = 'ws://localhost:5000'
+                    socketUri = 'http://localhost:5000'
                 } else {
-                    socketUri = 'ws://140.143.232.62:80'
+                    socketUri = 'http://140.143.232.62:80'
                 }
                 // this.socket = io.connect('ws://140.143.232.62')
                 this.socket = io.connect(socketUri)
