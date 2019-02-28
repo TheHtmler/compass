@@ -11,3 +11,5 @@
 2. Install Express.js as RESTful API Server
     2.1: Add express modules and it dependencies
         npm install --save express body-parser
+
+3.pm2 restart app.js

@@ -8,6 +8,7 @@
 
 <script>
     import io from 'socket.io-client'
+    let socketUri = ''
     
     export default {
         data() {
@@ -18,42 +19,24 @@
             }
         },
         created() {
-            this.initWebSocket()
+            this.socketIO()
         },
         methods: {
-            initWebSocket() {
-                this.socket = io.connect('ws://localhost:5000')
+            socketIO() {
+                if(location.hostname == 'localhost' || location.hostname == '127.0.0.1') {
+                    socketUri = 'ws://localhost:5000'
+                } else {
+                    socketUri = 'ws://140.143.232.62'
+                }
+                // this.socket = io.connect('ws://140.143.232.62')
+                this.socket = io.connect(socketUri)
                 this.socket.on('open', function(e) {
                     console.log('已连接')
                     console.log(e)
                 })
-                // const wsUri = 'ws://localhost:40510'
-                // this.ws = new WebSocket(wsUri)
-                // this.ws.onopen = this.webSocketOnOpen()
-                // this.ws.onerror = this.webSocketOnError()
-                // this.ws.onmessage = this.webSocketOnMessage()
-                // this.ws.onclose = this.webSocketOnClose()
-            },
-            webSocketOnOpen() {
-                console.log('WebSocket connect success!')
-            },
-            webSocketOnError() {
-                console.log('WebScoket connect failed!')
-            },
-            webSocketOnMessage(e) {
-                console.log(e)
-                // let resData = JSON.parse(e)
-                // console.log(resData)
-            },
-            webSocketSend(agentData) {
-                console.log(this.readyState)
-                this.ws.send(agentData)
-            },
-            webSocketOnClose() {
-                console.log('WebSocket closed!')
             },
             sendMsg(data) {
-                this.webSocketSend(data)
+                this.socket.emit('hi', data)
             }
         }
     }
