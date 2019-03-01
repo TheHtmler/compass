@@ -31,7 +31,7 @@
                 // this.socket = io.connect('ws://140.143.232.62')
                 this.socket = io.connect(socketUri)
                 this.socket.on('open', function(e) {
-                    console.log('已连接')
+                    console.log('已连接!')
                     console.log(e)
                 })
             },
