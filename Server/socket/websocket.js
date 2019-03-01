@@ -6,9 +6,10 @@ function websocket(server) {
         socket.on('hi', function(data) {
             console.log(data)
         })
-        setInterval(() => {
-            socket.emit('open', new Date())
-        }, 1000)
+        socket.emit('open', new Date())
+            /* setInterval(() => {
+                socket.emit('open', new Date())
+            }, 1000) */
     })
 }
 module.exports = websocket
