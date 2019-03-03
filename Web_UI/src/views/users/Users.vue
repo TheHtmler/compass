@@ -11,11 +11,16 @@
       </div>
     </div>
     <table-dom :columns="columns" :tableData="tableData"></table-dom>
+    
   </div>
 </template>
 
 <script>
 import tableDom from 'components/table/GlobalTable'
+// import modalDom from 'componenta/modal/modal'
+import { getUsers } from 'api/users'
+import SStorage from 'utils/SStorage'
+import { objDeepClone, convertUTCTimeToLocalTime } from 'utils/globalCommon'
 
 export default {
   data() {
@@ -23,11 +28,11 @@ export default {
       columns: [
         {
           title: 'Name',
-          key: 'name',
+          key: 'username',
           align: 'center'
         }, {
           title: 'Email',
-          key: 'e_mail',
+          key: 'email',
           align: 'center'
         }, {
           title: 'Role',
@@ -41,23 +46,67 @@ export default {
           title: 'last Login Time',
           key: 'last_login_time',
           align: 'center'
+        }, {
+          title: 'Actions',
+          key: 'actions',
+          align: 'center',
+          render: (h, params) => {
+              return h('div', [
+                  h('icon', {
+                      props: {
+                          type: 'md-create',
+                          size: '15'
+                      },
+                      style: {
+                          marginRight: '5px'
+                      },
+                      on: {
+                          click: () => {
+                              // this.show(params.index)
+                              console.log(params)
+                          }
+                      }
+                  }),
+                  h('icon', {
+                      props: {
+                          type: 'md-trash',
+                          size: '15'
+                      },
+                      style: {
+                          marginLeft: '5px'
+                      },
+                      on: {
+                          click: () => {
+                              // this.show(params.index)
+                              console.log(params)
+                          }
+                      }
+                  })
+              ]);
+          }
         }
       ],
-      tableData: [
-        {
-          name: "tt",
-          e_mail: '1111111111@qq.com',
-          role: 'ADMIN',
-          create_time: '',
-          last_login_time: ''
-        },{
-          name: "ll",
-          e_mail: '222222222@qq.com',
-          role: 'ADMIN',
-          create_time: '',
-          last_login_time: ''
-        }
-      ]
+      tableData: []
+    }
+  },
+  created() {
+    // console.log(SStorage.getItem('myToken'))
+    this.getUsersData()
+  },
+  methods: {
+    getUsersData() {
+      let token = SStorage.getItem('myToken')
+      getUsers(token).then(resp => {
+        let data = resp.data.data
+        this.tableData = objDeepClone(data)
+        this.tableData.map((val, index) => {
+          val.last_login_time = '-'
+          val.create_time = convertUTCTimeToLocalTime(val.create_time)
+        })
+        console.log(this.tableData)
+        console.log(data)
+
+      })
     }
   },
   components: {
